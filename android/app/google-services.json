@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1064910044613",
+    "project_id": "harber-99516",
+    "storage_bucket": "harber-99516.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1064910044613:android:b6d86dcdd73f650685dfac",
+        "android_client_info": {
+          "package_name": "com.example.harber"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1064910044613-ucau0eadrgg4q2opqnvb3s3op5plo66o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCEnFnSUmloVudxR2clsRoRLlnWd58jTKI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1064910044613-ucau0eadrgg4q2opqnvb3s3op5plo66o.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
