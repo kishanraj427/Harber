@@ -35,11 +35,19 @@ samples, guidance on mobile development, and a full API reference.
 
 ## Demo
 ### Splash Screen
+
 ![Splach screen](https://user-images.githubusercontent.com/62000613/221428599-cb466f50-86f4-4e05-9885-2eb42de8655a.gif)
 
+
+
 ### SignUp/LogIn Screen
+
 ![Login](https://user-images.githubusercontent.com/62000613/221428641-aed6c5ea-a7ed-454e-8a49-6a7fbca42ded.gif)
 
+
+
 ### Booking
+
 ![Payment_Screen](https://user-images.githubusercontent.com/62000613/221429443-69d2d076-c237-4347-a9da-e5c2a9a8733d.gif)
+
 
