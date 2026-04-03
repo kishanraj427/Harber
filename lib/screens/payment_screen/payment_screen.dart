@@ -8,7 +8,7 @@ import 'package:get/get.dart';
 import 'package:harber/app_color.dart';
 import 'package:harber/screens/payment_screen/payment_controller.dart';
 import 'package:lottie/lottie.dart';
-import 'package:upi_india/upi_india.dart';
+import 'package:flutter_upi_india/flutter_upi_india.dart';
 import '../home_screen/home_screen.dart';
 
 class PaymentScreen extends StatelessWidget {
@@ -250,14 +250,15 @@ class PaymentScreen extends StatelessWidget {
                                       borderRadius: BorderRadius.circular(20),
                                       side: const BorderSide(width: 0.8)),
                                   onTap: () async {
-                                    var response = await UpiIndia()
-                                        .startTransaction(
-                                            app: controller.apps[index],
-                                            receiverUpiId: '6203465594@ybl',
+                                    var response = await UpiPay
+                                        .initiateTransaction(
+                                            app: controller.apps[index].upiApplication,
+                                            receiverUpiAddress: '6203465594@ybl',
                                             receiverName: 'Raj Kishan Prasad',
-                                            transactionRefId: "9876543210",
+                                            transactionRef: "9876543210",
+                                            transactionNote: 'Salon Booking Payment',
                                             amount: controller.prices[
-                                                controller.service.value])
+                                                controller.service.value].toString())
                                         .then((value) => {
                                               FirebaseFirestore.instance
                                                   .collection('users')
@@ -295,12 +296,9 @@ class PaymentScreen extends StatelessWidget {
                                             });
                                     //if (response.status! == UpiPaymentStatus.SUCCESS) {
                                   },
-                                  leading: Image.memory(
-                                    controller.apps[index].icon,
-                                    fit: BoxFit.fill,
-                                  ),
+                                  leading: controller.apps[index].iconImage(40),
                                   title: Text(
-                                    controller.apps[index].name,
+                                    controller.apps[index].upiApplication.appName,
                                     style: const TextStyle(
                                         fontWeight: FontWeight.w500),
                                   ),
