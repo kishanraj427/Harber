@@ -105,19 +105,19 @@ Firestore
 
 | Package | Version | Purpose |
 |---------|---------|---------|
-| get | ^4.6.5 | State management & navigation |
-| firebase_core | ^2.4.0 | Firebase initialization |
-| firebase_auth | ^4.2.6 | User authentication |
-| cloud_firestore | ^4.4.0 | Database |
-| firebase_storage | ^11.0.8 | File storage |
-| upi_india | ^3.0.1 | UPI payment integration |
-| lottie | ^2.2.0 | Lottie animations |
+| get | ^4.7.2 | State management & navigation |
+| firebase_core | ^3.12.1 | Firebase initialization |
+| firebase_auth | ^5.5.1 | User authentication |
+| cloud_firestore | ^5.6.5 | Database |
+| firebase_storage | ^12.4.1 | File storage |
+| flutter_upi_india | ^1.0.1 | UPI payment integration |
+| lottie | ^3.3.1 | Lottie animations |
 | flutter_staggered_animations | ^1.1.1 | List animations |
 | flutter_rating_bar | ^4.0.1 | Star ratings |
-| calendar_date_picker2 | ^0.3.9 | Date picker |
+| calendar_date_picker2 | ^1.1.8 | Date picker |
 | scroll_to_index | ^3.0.1 | Programmatic scrolling |
-| flutter_svg | ^1.1.6 | SVG rendering |
-| http | ^0.13.5 | HTTP client |
+| flutter_svg | ^2.0.16 | SVG rendering |
+| http | ^1.3.0 | HTTP client |
 
 ## Documentation
 
