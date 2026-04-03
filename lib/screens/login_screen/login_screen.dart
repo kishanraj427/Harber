@@ -177,8 +177,7 @@ class LogInScreen extends StatelessWidget {
                                 controller.isPress.value = false;
                               } else {
                                 try {
-                                  UserCredential userCredential =
-                                      await FirebaseAuth
+                                  await FirebaseAuth
                                           .instance
                                           .signInWithEmailAndPassword(
                                               email: controller.email.value.text,

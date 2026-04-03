@@ -12,12 +12,11 @@ import 'package:flutter_upi_india/flutter_upi_india.dart';
 import '../home_screen/home_screen.dart';
 
 class PaymentScreen extends StatelessWidget {
-  PaymentScreen({super.key});
-
-  var controller = Get.put(PaymentController());
+  const PaymentScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(PaymentController());
     controller.name.value = Get.arguments[0];
     controller.loc.value = Get.arguments[1];
     controller.date.value = Get.arguments[2];
@@ -250,7 +249,7 @@ class PaymentScreen extends StatelessWidget {
                                       borderRadius: BorderRadius.circular(20),
                                       side: const BorderSide(width: 0.8)),
                                   onTap: () async {
-                                    var response = await UpiPay
+                                    await UpiPay
                                         .initiateTransaction(
                                             app: controller.apps[index].upiApplication,
                                             receiverUpiAddress: '6203465594@ybl',
