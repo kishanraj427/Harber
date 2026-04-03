@@ -1,5 +1,7 @@
 # Harber
 
+[![CI](https://github.com/kishanraj427/Harber/actions/workflows/ci.yml/badge.svg)](https://github.com/kishanraj427/Harber/actions/workflows/ci.yml)
+
 A Flutter-based salon booking application that lets users discover nearby salons, book appointments, and pay seamlessly via UPI.
 
 ## Features
@@ -21,7 +23,7 @@ A Flutter-based salon booking application that lets users discover nearby salons
 | Authentication | Firebase Auth |
 | Database | Cloud Firestore |
 | Storage | Firebase Storage |
-| Payments | UPI India |
+| Payments | Flutter UPI India |
 | Animations | Lottie, Flutter Staggered Animations |
 | UI Components | Calendar Date Picker 2, Flutter Rating Bar |
 
@@ -58,7 +60,7 @@ lib/
 
 ### Prerequisites
 
-- Flutter SDK (>=2.18.1 <3.0.0)
+- Flutter SDK (>=3.41.0)
 - A Firebase project with Auth, Firestore, and Storage enabled
 - Android Studio / VS Code with Flutter plugins
 
@@ -118,6 +120,38 @@ Firestore
 | scroll_to_index | ^3.0.1 | Programmatic scrolling |
 | flutter_svg | ^2.0.16 | SVG rendering |
 | http | ^1.3.0 | HTTP client |
+
+## Testing
+
+Run all tests:
+
+```bash
+flutter test
+```
+
+| Test File | Tests | Covers |
+|-----------|-------|--------|
+| `app_color_test.dart` | 5 | Color values and opacity |
+| `salon_class_test.dart` | 4 | Salon model instantiation |
+| `booking_controller_test.dart` | 10 | Time slot selection, date, initial state |
+| `slide_controller_test.dart` | 4 | Slide index navigation |
+| `payment_controller_test.dart` | 12 | Services, prices, service selection, state |
+| `signup_controller_test.dart` | 6 | Form fields, password visibility, loading state |
+| `login_controller_test.dart` | 6 | Form fields, password visibility, loading state |
+
+## CI/CD
+
+GitHub Actions runs automatically on every **push to main** and **pull request to main**:
+
+| Job | Description |
+|-----|-------------|
+| **Analyze** | Runs `flutter analyze` for static code analysis |
+| **Test** | Runs all 49 unit tests via `flutter test` |
+| **Build** | Builds debug APK (runs after Analyze and Test pass) |
+
+The build artifact (debug APK) is uploaded and available for download from the workflow run.
+
+Workflow config: [`.github/workflows/ci.yml`](.github/workflows/ci.yml)
 
 ## Documentation
 
