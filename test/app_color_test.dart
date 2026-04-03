@@ -21,10 +21,10 @@ void main() {
     });
 
     test('all colors are fully opaque', () {
-      expect(AppColor.prime1.alpha, 255);
-      expect(AppColor.prime2.alpha, 255);
-      expect(AppColor.prime3.alpha, 255);
-      expect(AppColor.background.alpha, 255);
+      expect(AppColor.prime1.a, 1.0);
+      expect(AppColor.prime2.a, 1.0);
+      expect(AppColor.prime3.a, 1.0);
+      expect(AppColor.background.a, 1.0);
     });
   });
 }
