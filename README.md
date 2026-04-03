@@ -1,53 +1,145 @@
 # Harber
 
-A new Flutter project called Harber is a concept appilcation for booking salons near you.
+A Flutter-based salon booking application that lets users discover nearby salons, book appointments, and pay seamlessly via UPI.
+
+## Features
+
+- **Onboarding** - Guided introduction slides for new users
+- **Authentication** - Email/password signup and login with Firebase Auth
+- **Salon Discovery** - Browse and search salons by location with ratings and images
+- **Appointment Booking** - Select date and time slots with an interactive calendar
+- **UPI Payments** - Pay directly through installed UPI apps (Google Pay, PhonePe, etc.)
+- **Upcoming Appointments** - Real-time sync of booked appointments on the home screen
+- **Animations** - Lottie splash screen and staggered list animations throughout
+
+## Tech Stack
+
+| Layer | Technology |
+|-------|-----------|
+| Framework | Flutter (Dart) |
+| State Management | GetX |
+| Authentication | Firebase Auth |
+| Database | Cloud Firestore |
+| Storage | Firebase Storage |
+| Payments | UPI India |
+| Animations | Lottie, Flutter Staggered Animations |
+| UI Components | Calendar Date Picker 2, Flutter Rating Bar |
+
+## Project Structure
+
+```
+lib/
+├── main.dart                          # App entry point & splash screen
+├── app_color.dart                     # Color palette constants
+├── objects/
+│   └── salon_class.dart               # Salon data model
+└── screens/
+    ├── slide_screen/                  # Onboarding carousel
+    │   ├── slide_screen.dart
+    │   └── slide_controller.dart
+    ├── signup_screen/                 # User registration
+    │   ├── signup_screen.dart
+    │   └── get_singup.dart
+    ├── login_screen/                  # User login
+    │   ├── login_screen.dart
+    │   └── get_login.dart
+    ├── home_screen/                   # Salon listing & search
+    │   ├── home_screen.dart
+    │   └── home_screen_controller.dart
+    ├── booking_screen/                # Date & time selection
+    │   ├── booking_screen.dart
+    │   └── booking_controller.dart
+    └── payment_screen/                # Service selection & UPI payment
+        ├── payment_screen.dart
+        └── payment_controller.dart
+```
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+### Prerequisites
 
-A few resources to get you started if this is your first Flutter project:
+- Flutter SDK (>=2.18.1 <3.0.0)
+- A Firebase project with Auth, Firestore, and Storage enabled
+- Android Studio / VS Code with Flutter plugins
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+### Setup
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/your-username/harber.git
+   cd harber
+   ```
 
-## Used Flutter Libraries
+2. Install dependencies:
+   ```bash
+   flutter pub get
+   ```
 
-+ scroll_to_index: ^3.0.1
-+ lottie: ^2.2.0
-+ get: ^4.6.5
-+ firebase_core: ^2.4.0
-+ firebase_auth: ^4.2.6
-+ firebase_storage: ^11.0.8
-+ flutter_staggered_animations: ^1.1.1
-+ flutter_rating_bar: ^4.0.1
-+ cloud_firestore: ^4.4.0
-+ calendar_date_picker2: ^0.3.9
-+ upi_india: ^3.0.1
+3. Configure Firebase:
+   - Create a Firebase project at [console.firebase.google.com](https://console.firebase.google.com)
+   - Add your Android/iOS app and download the config files
+   - Place `google-services.json` in `android/app/`
+   - Place `GoogleService-Info.plist` in `ios/Runner/`
 
-## Screensorts
+4. Run the app:
+   ```bash
+   flutter run
+   ```
+
+## Firebase Data Structure
+
+```
+Firestore
+├── salons/
+│   └── {state}/
+│       └── {city}/ (subcollection)
+│           └── {salon_doc} → { name, image, loc, rate }
+│
+└── users/
+    └── {email}/ → { name, email, uid }
+        └── booking/ (subcollection)
+            └── {timestamp} → { name, loc, date, time, service }
+```
+
+## Dependencies
+
+| Package | Version | Purpose |
+|---------|---------|---------|
+| get | ^4.6.5 | State management & navigation |
+| firebase_core | ^2.4.0 | Firebase initialization |
+| firebase_auth | ^4.2.6 | User authentication |
+| cloud_firestore | ^4.4.0 | Database |
+| firebase_storage | ^11.0.8 | File storage |
+| upi_india | ^3.0.1 | UPI payment integration |
+| lottie | ^2.2.0 | Lottie animations |
+| flutter_staggered_animations | ^1.1.1 | List animations |
+| flutter_rating_bar | ^4.0.1 | Star ratings |
+| calendar_date_picker2 | ^0.3.9 | Date picker |
+| scroll_to_index | ^3.0.1 | Programmatic scrolling |
+| flutter_svg | ^1.1.6 | SVG rendering |
+| http | ^0.13.5 | HTTP client |
+
+## Documentation
+
+- [Architecture Overview](docs/ARCHITECTURE.md)
+- [Diagrams (Mermaid)](docs/DIAGRAMS.md)
+
+## Screenshots
 
 ![Group 36](https://user-images.githubusercontent.com/62000613/221427323-9afdbf0a-3af1-41ee-9a5e-c71e1ee98231.png)
 
-## Demo
 ### Splash Screen
 
-![Splach screen](https://user-images.githubusercontent.com/62000613/221428599-cb466f50-86f4-4e05-9885-2eb42de8655a.gif)
+![Splash Screen](https://user-images.githubusercontent.com/62000613/221428599-cb466f50-86f4-4e05-9885-2eb42de8655a.gif)
 
-
-
-### SignUp/LogIn Screen
+### SignUp / LogIn
 
 ![Login](https://user-images.githubusercontent.com/62000613/221428641-aed6c5ea-a7ed-454e-8a49-6a7fbca42ded.gif)
 
+### Booking & Payment
 
+![Payment Screen](https://user-images.githubusercontent.com/62000613/221429443-69d2d076-c237-4347-a9da-e5c2a9a8733d.gif)
 
-### Booking
+## License
 
-![Payment_Screen](https://user-images.githubusercontent.com/62000613/221429443-69d2d076-c237-4347-a9da-e5c2a9a8733d.gif)
-
-
+This project is for educational and demonstration purposes.
